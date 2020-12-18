@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CityInfo.API.Controllers
 {
+    [ApiController]
     public class CitiesController : ControllerBase
     {
     }

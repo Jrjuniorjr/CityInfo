@@ -10,6 +10,19 @@ namespace CityInfo.API.Controllers
     [Route("api/cities/{cityId}/pointsofinterest")]
     public class PointsOfInterestController : ControllerBase
     {
-        
+        [HttpGet]
+        public IActionResult GetPointsOfInterest(int cityId)
+        {
+            var city = CitiesDataStore.Current.Cities
+                .FirstOrDefault(c => c.Id == cityId);
+
+            if(city == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(city.PointsOfInterest);
+
+        }
     }
 }

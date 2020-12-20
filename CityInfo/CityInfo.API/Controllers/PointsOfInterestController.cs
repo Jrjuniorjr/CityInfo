@@ -52,7 +52,12 @@ namespace CityInfo.API.Controllers
         public IActionResult CreatePointOfInterest(int cityId,
             [FromBody]PointOfInterestForCreationDto pointOfInterest)
         {
-            
+            var city = CitiesDataStore.Current.Cities
+                .FirstOrDefault(c => c.Id == cityId);
+            if(city == null)
+            {
+                return NotFound();
+            }
         }
     }
 }

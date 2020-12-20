@@ -29,6 +29,7 @@ namespace CityInfo.API.Controllers
 
             if(city == null)
             {
+                _logger.LogInformation($"City with id {cityId} wasn't found when acessing point of interest.");
                 return NotFound();
             }
 

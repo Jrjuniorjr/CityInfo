@@ -52,7 +52,10 @@ namespace CityInfo.API.Controllers
         public IActionResult CreatePointOfInterest(int cityId,
             [FromBody]PointOfInterestForCreationDto pointOfInterest)
         {
-
+            if(pointOfInterest == null)
+            {
+                return BadRequest();
+            }
         }
     }
 }

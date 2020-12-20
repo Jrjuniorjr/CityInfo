@@ -149,7 +149,20 @@ namespace CityInfo.API.Controllers
                     Description = pointOfInterestFromStore.Description
                 };
             patchDocument.ApplyTo(pointOfInterestToPatch, ModelState);
+
             if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (pointOfInterestToPatch.Description == pointOfInterestToPatch.Name)
+            {
+                ModelState.AddModelError(
+                    "Description",
+                    "The provided description should be different from the name.");
+            }
+
+            if (!TryValidateModel(pointOfInterestToPatch))
             {
                 return BadRequest(ModelState);
             }

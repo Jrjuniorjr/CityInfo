@@ -73,7 +73,7 @@ namespace CityInfo.API.Controllers
 
             return CreatedAtRoute(
                 "GetPointOfInterest",
-                new { cityId = cityId, id = finalPointOfInterest.Id },
+                new { cityId, id = finalPointOfInterest.Id },
                 finalPointOfInterest);
         }
     }

@@ -17,11 +17,5 @@ namespace CityInfo.API.Contexts
         {
             Database.EnsureCreated();
         }
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("connectionstring");
-        //    base.OnConfiguring(optionsBuilder);
-        //}
     }
 }
